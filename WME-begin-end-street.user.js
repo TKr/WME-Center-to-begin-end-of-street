@@ -4,10 +4,9 @@
 // @namespace 		http://pyrczak.pl
 // @grant 			none
 // @grant 			GM_info
-// @version 		0.0.3
-// @include         https://www.waze.com/editor/*
-// @include         https://www.waze.com/*/editor/*
-// @include         https://editor-beta.waze.com/*
+// @version 		0.0.4
+// @match               https://editor-beta.waze.com/*editor/*
+// @match               https://www.waze.com/*editor/*
 // @author			Pawel Pyrczak '2014
 // @license			MIT/BSD/X11
 // ==/UserScript==
@@ -217,7 +216,7 @@ function WMEbes_init() {
 
         for (var s=unsafeWindow.Waze.selectionManager.selectedItems.length-1; s>=0; s--) {
             var sel = Waze.selectionManager.selectedItems[s];
-            if (sel.type == "segment") { 
+            if ((sel.type == "segment") || (sel.model.type == "segment")) { 
 
                 foundSelectedSegment = true;
                 var pb = unsafeWindow.Waze.map.getCenter()
@@ -281,13 +280,13 @@ function WMEbes_init() {
 						WMEbes.isLSsupported = false;
 					}
 				WMEbes.loadLS();
-				WMEbes.interval = setInterval(WMEbes.timer,500);
+				WMEbes.interval = setInterval(WMEbes.timer,200);
 				WMEbes.console_log("WME begin-end-street initialized");
 			} else {
-				setTimeout(WMEbes.startcode, 1000);
+				setTimeout(WMEbes.startcode, 400);
 			}
 		} catch(err) {
-				setTimeout(WMEbes.startcode, 1000);
+				setTimeout(WMEbes.startcode, 400);
 		}
 	}
    
