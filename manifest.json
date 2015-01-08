@@ -1,0 +1,21 @@
+{
+   "content_scripts": [ {
+      "exclude_globs": [  ],
+      "exclude_matches": [  ],
+      "include_globs": [  ],
+      "matches": [ "https://*.waze.com/*/editor/*","https://editor-beta.waze.com/editor/*", "https://editor-beta.waze.com/*/editor/*", "https://www.waze.com/editor/*" ],
+      "js": [ "WME-begin-end-street.user.js" ],
+      "run_at": "document_end"
+   } ],
+   "icons": {
+      "128": "images/logo-128.png",
+      "16": "images/logo-16.png",
+      "64": "images/logo-64.png"
+   },
+   "manifest_version": 2,
+   "converted_from_user_script": true,
+   "description": "Tool for easily centering map on node A or B of selected street",
+   "key": "8AXiW2Lb2bly6i6KBr/vzmPwrfLoD5LO3A/YVYVIzyg=",
+   "name": "WME center to begin-end of street",
+   "version": "0.0.3"
+}
